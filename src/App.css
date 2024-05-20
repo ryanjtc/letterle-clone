@@ -23,14 +23,14 @@ body {
 
 .App-header h2 span {
   display: inline-block;
-  border: 1px solid white; /* Add a border around each letter */
-  padding: 5px; /* Add some padding for better appearance */
-  margin: 5px; /* Add some margin to separate the letters */
+  border: 1px solid white;
+  padding: 5px;
+  margin: 5px; 
 }
 
 .App-header h2 .first-letter {
-  color: white; /* Change the text color of the first letter */
-  background-color: green; /* Change the background color of the first letter */
+  color: white; 
+  background-color: green;
   padding: 5px;
 }
 
@@ -49,6 +49,7 @@ body {
 
 .keyboard-key {
   background-color: #f0f0f0;
+  color: black;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 15px;
@@ -76,6 +77,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 5px;
 }
 
 .grid-item {
@@ -145,7 +147,20 @@ body {
 /* For mobile devices */
 @media only screen and (max-width: 432px) {
   .keyboard-key {
-    padding: 10px 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .grid-item {
+    padding: 8px;
+    min-width: 15px;
+  }
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 417px) {
+  .keyboard-key {
+    padding: 10px 9px;
     font-size: 14px;
   }
 
