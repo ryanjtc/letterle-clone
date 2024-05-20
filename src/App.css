@@ -100,6 +100,7 @@ body {
   display: inline-flex;
   align-items: center;
   border: solid thin whitesmoke;
+  border-radius: 3px;
   padding: 10px;
 }
 
@@ -109,6 +110,23 @@ body {
 
 .helpParagraph {
   font-size: medium;
+}
+
+.shareButton {
+  color: white;
+  background-color: #282c34;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  border: solid thin whitesmoke;
+  border-radius: 3px;
+  padding: 8px;
+  font-size: 17px;
+}
+
+.shareButton:hover {
+  background-color: #4caf50;
+  transform: translateY(-2px);
 }
 
 /* For mobile devices */

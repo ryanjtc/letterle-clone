@@ -23,7 +23,7 @@ export default function Keyboard({ onKeyClick, disabled, answer }) {
   const getKeyColor = (key) => {
     if (isKeyActive(key)) {
       if (key === answer) {
-        return 'green';
+        return '#4caf50';
       } else {
         return 'gray';
       }

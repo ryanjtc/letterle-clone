@@ -57,7 +57,7 @@ function App() {
         {answerFound && <p>Attempts: {attempts}/26</p>}
         {answerFound && (
           <div>
-            <button onClick={handleCopyClick}>Share</button>
+            <button className='shareButton' onClick={handleCopyClick}>Share</button>
             {copySuccess && <p>{copySuccess}</p>}
           </div>
         )}
