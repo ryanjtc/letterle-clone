@@ -28,7 +28,8 @@ function App() {
   };
 
   const handleCopyClick = () => {
-    const textToCopy = `Attempts: ${attempts}/26`;
+    const url = "https://ryanjtc.github.io/letterle-clone/";
+    const textToCopy = `Attempts: ${attempts}/26\n${url}`;
     navigator.clipboard.writeText(textToCopy).then(() => {
       setCopySuccess('Copied to clipboard!');
     }, (err) => {
@@ -36,6 +37,7 @@ function App() {
       console.error('Could not copy text: ', err);
     });
   };
+
 
   return (
     <div className="App">
