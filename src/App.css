@@ -19,6 +19,7 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-top: 20px;
 }
 
 .App-header h2 span {
@@ -37,7 +38,7 @@ body {
 .titleContainer {
   border: solid thin white;
   border-radius: 5px;
-  padding: 15px;
+  padding: 12px;
 }
 
 .subTitle {
