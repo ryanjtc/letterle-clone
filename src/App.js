@@ -55,7 +55,6 @@ function App() {
         </h2>
        <p className='subTitle'>Press any letter on the keyboard to begin.</p> 
       </div>
-      
         <br/>
         <Grid keys={clickedKeys} answer={answer} />
         <Keyboard onKeyClick={handleKeyClick} disabled={answerFound} answer={answer} />
