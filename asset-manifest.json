@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/letterle-clone/static/css/main.ee8e085d.css",
+    "main.css": "/letterle-clone/static/css/main.04bb5e2c.css",
     "main.js": "/letterle-clone/static/js/main.1eb19088.js",
     "static/js/453.065f2513.chunk.js": "/letterle-clone/static/js/453.065f2513.chunk.js",
     "index.html": "/letterle-clone/index.html",
-    "main.ee8e085d.css.map": "/letterle-clone/static/css/main.ee8e085d.css.map",
+    "main.04bb5e2c.css.map": "/letterle-clone/static/css/main.04bb5e2c.css.map",
     "main.1eb19088.js.map": "/letterle-clone/static/js/main.1eb19088.js.map",
     "453.065f2513.chunk.js.map": "/letterle-clone/static/js/453.065f2513.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee8e085d.css",
+    "static/css/main.04bb5e2c.css",
     "static/js/main.1eb19088.js"
   ]
 }
