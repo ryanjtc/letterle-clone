@@ -38,10 +38,10 @@ function App() {
     });
   };
 
-
   return (
     <div className="App">
       <div className="App-header">
+      <div className='titleContainer'>
         <h2>
           { "Guess The Letter!".split(' ').map((word, index) => (
             <div key={index} className={index === 0 ? 'first-word' : ''}>
@@ -53,7 +53,10 @@ function App() {
             </div>
           ))}
         </h2>
-        <br />
+       <p className='subTitle'>Press any letter on the keyboard to begin.</p> 
+      </div>
+      
+        <br/>
         <Grid keys={clickedKeys} answer={answer} />
         <Keyboard onKeyClick={handleKeyClick} disabled={answerFound} answer={answer} />
         {answerFound && <p>Attempts: {attempts}/26</p>}

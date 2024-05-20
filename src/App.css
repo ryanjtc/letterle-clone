@@ -25,13 +25,24 @@ body {
   display: inline-block;
   border: 1px solid white;
   padding: 5px;
-  margin: 5px; 
+  margin: 5px;
 }
 
 .App-header h2 .first-letter {
   color: white; 
   background-color: green;
   padding: 5px;
+}
+
+.titleContainer {
+  border: solid thin white;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.subTitle {
+  font-size: 12px;
+  color: lightgray;
 }
 
 .keyboard {
@@ -73,7 +84,6 @@ body {
 }
 
 .grid {
-  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
