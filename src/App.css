@@ -1,0 +1,138 @@
+/* Import the font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto Mono', monospace;
+}
+
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-header h2 span {
+  display: inline-block;
+  border: 1px solid white; /* Add a border around each letter */
+  padding: 5px; /* Add some padding for better appearance */
+  margin: 5px; /* Add some margin to separate the letters */
+}
+
+.App-header h2 .first-letter {
+  color: white; /* Change the text color of the first letter */
+  background-color: green; /* Change the background color of the first letter */
+  padding: 5px;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.keyboard-key {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.keyboard-key:active {
+  background-color: #dcdcdc;
+}
+
+.keyboard-key:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.keyboard-key:focus {
+  outline: none;
+}
+
+.grid {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid-item {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid white;
+  min-width: 20px;
+  text-align: center;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.grid-item.correct {
+  background-color: #4caf50;
+  color: white;
+}
+
+.helpTitle {
+  color: darkgray;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  border: solid thin whitesmoke;
+  padding: 10px;
+}
+
+.helpTitle:hover {
+  color: lightgray;
+}
+
+.helpParagraph {
+  font-size: medium;
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 500px) {
+  .keyboard-key {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .grid-item {
+    padding: 8px;
+    min-width: 15px;
+  }
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 432px) {
+  .keyboard-key {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+
+  .grid-item {
+    padding: 8px;
+    min-width: 15px;
+  }
+}
