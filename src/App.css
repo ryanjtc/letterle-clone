@@ -112,6 +112,7 @@ body {
 
 .helpParagraph {
   font-size: medium;
+  padding: 10px; 
 }
 
 .shareButton {
