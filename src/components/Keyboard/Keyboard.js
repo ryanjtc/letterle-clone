@@ -1,34 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function Keyboard({ onKeyClick, disabled, answer }) {
+export default function Keyboard({ onKeyClick, clickedKeys, disabled, answer }) {
   const keys = [
     ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
     ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
     ['Z', 'X', 'C', 'V', 'B', 'N', 'M'],
   ];
 
-  const [activeKeys, setActiveKeys] = useState([]);
-
   const handleClick = (key) => {
-    if (!disabled && !activeKeys.includes(key)) {
-      setActiveKeys([...activeKeys, key]);
+    if (!disabled && !clickedKeys.includes(key)) {
       onKeyClick(key);
     }
   };
 
-  const isKeyActive = (key) => {
-    return activeKeys.includes(key);
-  };
-
   const getKeyColor = (key) => {
-    if (isKeyActive(key)) {
+    if (clickedKeys.includes(key)) {
       if (key === answer) {
-        return '#4caf50';
+        return '#4caf50'; // green color for correct answer
       } else {
-        return 'gray';
+        return 'gray'; // gray color for incorrect answer
       }
     } else {
-      return '#f0f0f0';
+      return '#f0f0f0'; // default color for untouched keys
     }
   };
 
