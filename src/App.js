@@ -42,8 +42,18 @@ function App() {
   }, [handleKeyDown]);
 
   const handleCopyClick = () => {
+    const maxCols = 6;
+    let grid = '';
+    for (let i = 0; i < attempts; i++) {
+      if (i > 0 && i % maxCols === 0) {
+        grid = grid.trim();
+        grid += '\n \n';
+      }
+      grid += (i === attempts - 1) ? '🟩 ' : '⬜ ';
+    }
+    grid = grid.trim(); // Removes the trailing space at the end of the grid
     const url = "https://ryanjtc.github.io/letterle-clone/";
-    const textToCopy = `Attempts: ${attempts}/26\n${url}`;
+    const textToCopy = `Attempts: ${attempts}/26\n${grid}\n${url}`;
     navigator.clipboard.writeText(textToCopy).then(() => {
       setCopySuccess('Copied to clipboard!');
     }, (err) => {
@@ -51,7 +61,7 @@ function App() {
       console.error('Could not copy text: ', err);
     });
   };
-
+  
   return (
     <div className="App">
       <div className="App-header">
