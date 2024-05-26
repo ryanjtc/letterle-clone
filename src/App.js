@@ -80,7 +80,7 @@ function App() {
               </div>
             ))}
           </h2>
-          <p className='subTitle'>Press any letter on the keyboard to begin.</p>
+          <p className='subTitle'>Type or click a letter to begin.</p>
         </div>
         <br/>
         <Grid keys={clickedKeys} answer={answer} />
