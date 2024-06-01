@@ -14,7 +14,7 @@ export default function Help() {
           This is a clone of the online game 'LetterLe'.
           <br/>
           <br/>
-          A random letter is chosen each time the page refreshes.
+          A random letter is chosen each day at midnight.
           <br/>
           <br/>
           You'll be given a score based on the number of click(s) it takes to find.

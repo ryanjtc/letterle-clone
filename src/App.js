@@ -11,10 +11,47 @@ function App() {
   const [answerFound, setAnswerFound] = useState(false);
   const [copySuccess, setCopySuccess] = useState('');
 
-  useEffect(() => {
+  const generateRandomLetter = () => {
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const randomLetter = letters[Math.floor(Math.random() * letters.length)];
-    setAnswer(randomLetter);
+    return letters[Math.floor(Math.random() * letters.length)];
+  };
+
+  const getNextMidnight = () => {
+    const now = new Date();
+    const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+    return nextMidnight.getTime();
+  };
+
+  useEffect(() => {
+    const storedLetter = localStorage.getItem('letter');
+    const storedTimestamp = localStorage.getItem('timestamp');
+    const now = Date.now();
+    if (storedLetter && storedTimestamp && now < parseInt(storedTimestamp, 10)) {
+      setAnswer(storedLetter);
+    } else {
+      const newLetter = generateRandomLetter();
+      setAnswer(newLetter);
+      localStorage.setItem('letter', newLetter);
+      localStorage.setItem('timestamp', getNextMidnight().toString());
+    }
+
+    const timeUntilMidnight = getNextMidnight() - now;
+
+    const midnightTimeout = setTimeout(() => {
+      const newLetter = generateRandomLetter();
+      setAnswer(newLetter);
+      localStorage.setItem('letter', newLetter);
+      localStorage.setItem('timestamp', getNextMidnight().toString());
+
+      setInterval(() => {
+        const newLetterInterval = generateRandomLetter();
+        setAnswer(newLetterInterval);
+        localStorage.setItem('letter', newLetterInterval);
+        localStorage.setItem('timestamp', getNextMidnight().toString());
+      }, 24 * 60 * 60 * 1000);
+    }, timeUntilMidnight);
+
+    return () => clearTimeout(midnightTimeout);
   }, []);
 
   const handleKeyClick = useCallback((key) => {
@@ -47,14 +84,14 @@ function App() {
     for (let i = 0; i < attempts; i++) {
       if (i > 0 && i % maxCols === 0) {
         grid = grid.trim();
-        grid += '\n \n';
+        grid += '\n\n';
       }
       grid += (i === attempts - 1) ? '🟩 ' : '⬜ ';
     }
-    grid = grid.trim(); // Removes the trailing space at the end of the grid
+    grid = grid.trim();
     const url = "https://ryanjtc.github.io/letterle-clone/";
     const textToCopy = `Attempts: ${attempts}/26\n${grid}\n${url}`;
-  
+
     try {
       await navigator.clipboard.writeText(textToCopy);
       setCopySuccess('Copied to clipboard!');
@@ -63,14 +100,13 @@ function App() {
       console.error('Could not copy text: ', err);
     }
   };
-  
-  
+
   return (
     <div className="App">
       <div className="App-header">
         <div className='titleContainer'>
           <h2>
-            { "Guess The Letter!".split(' ').map((word, index) => (
+            {"Guess The Letter!".split(' ').map((word, index) => (
               <div key={index} className={index === 0 ? 'first-word' : ''}>
                 {word.split('').map((char, charIndex) => (
                   <span key={charIndex} className={charIndex === 0 + 1 ? 'first-letter' : ''}>
@@ -90,6 +126,7 @@ function App() {
           <div>
             <button className='shareButton' onClick={handleCopyClick}>Share</button>
             {copySuccess && <p>{copySuccess}</p>}
+            <h6>New Letter Available Everyday!</h6>
           </div>
         )}
         <Help />
